@@ -40,7 +40,7 @@
                     <input type="hidden" id="hdEventID" value="0" />
                     <div class="form-group">
                         <label>Subject</label>
-                        <input type="text" id="txtTitle" class="form-control"/>
+                        <input type="text" id="txtSubject" class="form-control"/>
                     </div>
                     <div class="form-group">
                         <label>Start</label>
@@ -223,7 +223,7 @@
             function SaveEditModal() {
                 if (selectedEvent != null) {
                     $('#hdEventID').val(selectedEvent.eventID);
-                    $('#txtTitle').val(selectedEvent.title);
+                    $('#txtSubject').val(selectedEvent.title);
                     $('#txtStart').val(selectedEvent.start.format('DD/MM/YYYY HH:mm A'));
                     $('#chkIsFullDay').prop("checked", selectedEvent.allDay || false);
                     $('#chkIsFullDay').change();
@@ -237,7 +237,7 @@
 
             $('#btnSave').click(function () {
                 //Validation/
-                if ($('#txtTitle').val().trim() == "") {
+                if ($('#txtSubject').val().trim() == "") {
                     alert('Subject required');
                     return;
                 }
@@ -260,7 +260,7 @@
             
                 var data = {
                     EventID: $('#hdEventID').val(),
-                    Subject: $('#txtTitle').val().trim(),
+                    Subject: $('#txtSubject').val().trim(),
                     Start: $('#txtStart').val().trim(),
                     End: $('#chkIsFullDay').is(':checked') ? null : $('#txtEnd').val().trim(),
                     Description: $('#txtDescription').val(),
